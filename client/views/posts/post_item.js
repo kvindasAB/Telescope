@@ -11,7 +11,7 @@ Template.post_item.helpers({
     return !!this.url ? getOutgoingUrl(this.url) : "/posts/"+this._id;
   },
   postTarget: function() {
-    return !!this.url ? '_blank' : '';
+    return !!this.url && !getSetting("forceDetailPage", false) ? '_blank' : '';
   },
   oneBasedRank: function(){
     if(typeof this.rank != 'undefined')
