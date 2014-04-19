@@ -87,6 +87,7 @@ Template.post_submit.events({
   'click .get-title-link': function(e){
     var url, $titleLinkEl, $titleEl, $descEl;
     e.preventDefault();
+
     url=$("#url").val();
     $titleLinkEl = $(".get-title-link");
     $titleEl = $("#title");
@@ -97,6 +98,37 @@ Template.post_submit.events({
     }
 
     recommendTitleAndContent(url, $titleEl, $descEl, $titleLinkEl);
+  },
+
+  'blur #url': function(e){
+    console.log("blur url...");
+    var url, lastValidatedUrl, $titleLinkEl, $titleEl, $descEl, autoRecommend;
+    e.preventDefault();
+    autoRecommend = getSetting("autoRecommendPostData", false);
+    if(!autoRecommend){
+        return;
+    }
+
+    url = $("#url").val();
+    lastValidatedUrl = $("#validated_url").val();
+
+    // Url already recommended
+    if(url === lastValidatedUrl){
+        return;
+    }
+
+    $titleLinkEl = $(".get-title-link");
+    $titleEl = $("#title");
+    $descEl  = $("#editor iframe").contents().find("#epiceditor-editor-frame").contents().find("body");
+
+    if(!url){
+        alert("Please fill in an URL first!");
+    }
+
+    recommendTitleAndContent(url, $titleEl, $descEl, $titleLinkEl);
+    $("#validated_url").val(url);
   }
+
+
 
 });
