@@ -7,6 +7,7 @@ Setting = FormModel.extend({
     forceExistingUrlOnly: false,
     useCaptchaOnSignup: false,
     autoRecommendPostData: false,
+    allowPostImage: false,
     requireViewInvite: false,
     requirePostInvite: false,
     requirePostsApproval: false,
@@ -47,6 +48,7 @@ Setting = FormModel.extend({
   init: function(options) {
     this._super(Settings, options);
     this.overwriteTitle('forceDetailPage', 'Force Detail Page');
+    this.overwriteTitle('allowPostImage', 'Allow a Post Image');
     this.overwriteTitle('forceExistingUrlOnly', 'Force Existing Url Only');
     this.overwriteTitle('useCaptchaOnSignup', 'Use Captcha on SignUp');
     this.overwriteTitle('autoRecommendPostData', 'Automatically recommend Post Title and Body');
