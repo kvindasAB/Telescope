@@ -66,7 +66,11 @@
     {{/if}}
 
     <div class="auth-buttons">
-      {{loginButtons align="right"}}
+      {{#if isLogged}}
+        {{loginButtons align="right"}}
+      {{else}}
+        <a href="/signin">{{i18n "Sign In/Sign Up"}}</a>
+      {{/if}}
     </div>
 
   </header>
