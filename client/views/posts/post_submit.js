@@ -85,32 +85,18 @@ Template.post_submit.events({
     });
   },
   'click .get-title-link': function(e){
-    var suggestedTitle, suggestedDescription, ta;
+    var url, $titleLinkEl, $titleEl, $descEl;
     e.preventDefault();
-    var url=$("#url").val();
-    $(".get-title-link").addClass("loading");
-    if(url){
-      $.get(url).done(function(response){
-          suggestedTitle=((/<title>(.*?)<\/title>/m).exec(response.results[0]));
-          suggestedDescription=((/content="(.*?)"\s.*name="description"/mi).exec(response.results[0]));
-          if(!suggestedDescription){
-            suggestedDescription=((/name="description"\s.*content="(.*?)"/mi).exec(response.results[0]));
-          }
-          if (suggestedTitle){
-              $("#title").val(suggestedTitle[1]);
-          }
-          if (suggestedDescription){
-              ta = $("#editor iframe").contents().find("#epiceditor-editor-frame").contents().find("body");
-              ta.text(suggestedDescription[1]);
-          }
-          $(".get-title-link").removeClass("loading");
-      }).fail(function(){
-          //console.log('inside fails...');
-      });
-    }else{
-      alert("Please fill in an URL first!");
-      $(".get-title-link").removeClass("loading");
+    url=$("#url").val();
+    $titleLinkEl = $(".get-title-link");
+    $titleEl = $("#title");
+    $descEl  = $("#editor iframe").contents().find("#epiceditor-editor-frame").contents().find("body");
+
+    if(!url){
+        alert("Please fill in an URL first!");
     }
+
+    recommendTitleAndContent(url, $titleEl, $descEl, $titleLinkEl);
   }
 
 });
