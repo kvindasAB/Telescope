@@ -69,7 +69,6 @@ Template.post_submit.events({
     }
 
     var executePost = function(){
-        console.log("executing post ...");
         Meteor.call('post', properties, function(error, post) {
           if(error){
             throwError(error.reason);
@@ -93,12 +92,10 @@ Template.post_submit.events({
     }
     // Existing Url Only
     isUrlExisting(url, function(){
-       console.log("url is valid")
         // success
        executePost();
     }, function(){
         // fail
-        console.log("url is invalid")
         throwError(i18n.t("Should provide a valid and existing url."));
         alert(i18n.t("Should provide a valid and existing url."));
         $(e.target).removeClass('disabled');
