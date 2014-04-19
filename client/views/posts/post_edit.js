@@ -123,17 +123,38 @@ Template.post_edit.events({
       properties = _.extend(properties, adminProperties);
     }
 
-    Posts.update(post._id,{
-      $set: properties
-    }, function(error){
-      if(error){
-        console.log(error);
-        throwError(error.reason);
-      }else{
-        trackEvent("edit post", {'postId': post._id});
-        Router.go("/posts/"+post._id);
-      }
+
+    var executeUpdate = function(){
+        Posts.update(post._id,{
+          $set: properties
+        }, function(error){
+          if(error){
+            console.log(error);
+            throwError(error.reason);
+          }else{
+            trackEvent("edit post", {'postId': post._id});
+            Router.go("/posts/"+post._id);
+          }
+        });
+    }
+
+    var isExistingUrlOnly = getSetting("forceExistingUrlOnly", false);
+    if(!isExistingUrlOnly){
+       executeUpdate();
+       return;
+    }
+    // Existing Url Only
+    isUrlExisting(url, function(){
+        // success
+       executeUpdate();
+    }, function(){
+        // fail
+        throwError(i18n.t("Should provide a valid and existing url."));
+        alert(i18n.t("Should provide a valid and existing url."));
+        $(e.target).removeClass('disabled');
+        return false;
     });
+
   },
   'click .delete-link': function(e){
     var post = this;
