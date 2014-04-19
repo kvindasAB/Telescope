@@ -68,19 +68,35 @@ Template.post_submit.events({
       properties.url = cleanUrl(url);
     }
 
-    Meteor.call('post', properties, function(error, post) {
-      if(error){
-        throwError(error.reason);
-        clearSeenErrors();
-        $(e.target).removeClass('disabled');
-        if(error.error == 603)
-          Router.go('/posts/'+error.details);
-      }else{
-        trackEvent("new post", {'postId': post.postId});
-        if(post.status === STATUS_PENDING)
-          throwError('Thanks, your post is awaiting approval.')
-        Router.go('/posts/'+post.postId);
-      }
+    var executePost = function(){
+        Meteor.call('post', properties, function(error, post) {
+          if(error){
+            throwError(error.reason);
+            clearSeenErrors();
+            $(e.target).removeClass('disabled');
+            if(error.error == 603)
+              Router.go('/posts/'+error.details);
+          }else{
+            trackEvent("new post", {'postId': post.postId});
+            if(post.status === STATUS_PENDING)
+              throwError('Thanks, your post is awaiting approval.')
+            Router.go('/posts/'+post.postId);
+          }
+        });
+    }
+
+    var isExistingUrlOnly = getSetting("forceExistingUrlOnly", false);
+    if(!isExistingUrlOnly){
+       executePost();
+       return;
+    }
+    // Existing Url Only
+    isUrlExisting(url, function(){
+        // success
+       executePost();
+    }, function(){
+        // fail
+        alert("Should provide a valid and existing url.");
     });
   },
   'click .get-title-link': function(e){

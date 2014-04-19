@@ -4,6 +4,7 @@ Setting = FormModel.extend({
       
   blankSchema: {
     forceDetailPage: false,
+    forceExistingUrlOnly: false,
     useCaptchaOnSignup: false,
     autoRecommendPostData: false,
     requireViewInvite: false,
@@ -46,6 +47,7 @@ Setting = FormModel.extend({
   init: function(options) {
     this._super(Settings, options);
     this.overwriteTitle('forceDetailPage', 'Force Detail Page');
+    this.overwriteTitle('forceExistingUrlOnly', 'Force Existing Url Only');
     this.overwriteTitle('useCaptchaOnSignup', 'Use Captcha on SignUp');
     this.overwriteTitle('autoRecommendPostData', 'Automatically recommend Post Title and Body');
     this.overwriteTitle('scoreUpdateInterval', 'Scoring Frequency'); 
