@@ -4,6 +4,7 @@ Setting = FormModel.extend({
       
   blankSchema: {
     forceDetailPage: false,
+    useCaptchaOnSignup: false,
     requireViewInvite: false,
     requirePostInvite: false,
     requirePostsApproval: false,
@@ -44,6 +45,7 @@ Setting = FormModel.extend({
   init: function(options) {
     this._super(Settings, options);
     this.overwriteTitle('forceDetailPage', 'Force Detail Page');
+    this.overwriteTitle('useCaptchaOnSignup', 'Use Captcha on SignUp');
     this.overwriteTitle('scoreUpdateInterval', 'Scoring Frequency'); 
     this.overwriteTitle('requireViewInvite', 'Require invite to view?');
     this.overwriteTitle('requirePostInvite', 'Require invite to post?');

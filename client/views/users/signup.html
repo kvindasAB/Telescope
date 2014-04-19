@@ -18,9 +18,11 @@
           <label>{{i18n "Password"}}</label>
           <div class="controls"><input id="password" name="password" type="password" value="" /></div>
         </div>
+        {{#if getSetting 'useCaptchaOnSignup' false }}
         <div class="control-group">
           {{>captcha}}
         </div>
+        {{/if}}
 
         <div class="form-actions">
           <input type="submit" class="button" value="{{i18n "Sign Up"}}" />

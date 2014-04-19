@@ -9,12 +9,7 @@ Template.signup.events({
         return false;
       }
 
-
-
-      VisualCaptcha.validateCaptcha(function(){
-            //callback called only on success; if it fails captcha will display a message informing the user why validation has failed
-            //do your form parsing, meteor calls, whatever you would normaly have done
-
+      var createUser = function(){
           Accounts.createUser({
               username: username
             , email: email
@@ -26,8 +21,17 @@ Template.signup.events({
               Router.go('/');
             }
           });
+      }
 
-      });
+      var tmpIsCaptchaActive = getSetting('useCaptchaOnSignup', false);
+      if(!tmpIsCaptchaActive){
+        createUser();
+      }else {
+        VisualCaptcha.validateCaptcha(function(){
+            // Callback on validate success
+            createUser();
+        });
+      }
 
   },
 
