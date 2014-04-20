@@ -9,7 +9,7 @@ Posts.deny({
     if(isAdminById(userId))
       return false;
     // deny the update if it contains something other than the following fields
-    return (_.without(fieldNames, 'headline', 'url', 'body', 'shortUrl', 'shortTitle', 'categories').length > 0);
+    return (_.without(fieldNames, 'headline', 'url', 'body', 'shortUrl', 'shortTitle', 'categories', 'imageUrl').length > 0);
   }
 });
 

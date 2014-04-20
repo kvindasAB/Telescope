@@ -92,6 +92,12 @@
             </div>
           </div>
         {{/if}}
+        {{#if getSetting "allowPostImage" false}}
+          <div class="control-group">
+            <label class="control-label">{{i18n "Image URL"}}</label>
+            <div class="controls"><input id="image_url" type="text" value="{{imageUrl}}" /></div>
+          </div>
+        {{/if}}
         <div class="form-actions">
           <a class="delete-link" href="/posts/deleted">{{i18n "Delete Post"}}</a>
           <input type="submit" value="{{i18n "Submit"}}" />

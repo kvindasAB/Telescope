@@ -80,6 +80,7 @@ Template.post_edit.events({
     var post = this;
     var categories = [];
     var url = $('#url').val();
+    var imageUrl = $('#image_url').val();
     var shortUrl = $('#short-url').val();
     var status = parseInt($('input[name=status]:checked').val());
 
@@ -106,6 +107,10 @@ Template.post_edit.events({
       properties.url = cleanUrl(url);
     }
 
+    if(imageUrl){
+      properties.imageUrl = cleanUrl(imageUrl);
+    }
+
     if(isAdmin(Meteor.user())){
       if(status == STATUS_APPROVED){
         if(!post.submitted){
@@ -125,6 +130,7 @@ Template.post_edit.events({
 
 
     var executeUpdate = function(){
+        console.log("executeUpdate...");
         Posts.update(post._id,{
           $set: properties
         }, function(error){
@@ -138,6 +144,9 @@ Template.post_edit.events({
         });
     }
 
+    console.log(post);
+    console.log(properties);
+
     var isExistingUrlOnly = getSetting("forceExistingUrlOnly", false);
     if(!isExistingUrlOnly){
        executeUpdate();
@@ -145,9 +154,11 @@ Template.post_edit.events({
     }
     // Existing Url Only
     isUrlExisting(url, function(){
+        console.log("isUrlExisting...");
         // success
        executeUpdate();
     }, function(){
+        console.log("isUrlExisting...-fail");
         // fail
         throwError(i18n.t("Should provide a valid and existing url."));
         alert(i18n.t("Should provide a valid and existing url."));
