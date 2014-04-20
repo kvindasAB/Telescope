@@ -65,6 +65,13 @@
         </div>
         {{/constant}} 
       {{/if}}
+      {{#if getSetting "allowPostImage" false}}
+          <div class="control-group">
+            <label class="control-label">{{i18n "Image URL"}}</label>
+            <div class="controls"><input id="image_url" type="text" value="" /></div>
+          </div>
+      {{/if}}
+
       <div class="form-actions">
         <input type="submit" value="{{i18n "Submit"}}" />
       </div>

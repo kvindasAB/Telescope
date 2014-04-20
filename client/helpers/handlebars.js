@@ -49,6 +49,19 @@ Handlebars.registerHelper('canEdit', function(collectionName, item, action) {
   // var item=collection.findOne(itemId);
   return item && canEdit(Meteor.user(), item, action);
 });
+
 Handlebars.registerHelper('isLogged', function() {
   return isLogged();
+});
+
+Handlebars.registerHelper('resizeImgByUrl', function(url, width, height) {
+  if(!url){
+      return "";
+  }
+  var baseUrl = "http://src.sencha.io"
+  if(width && height){
+      baseUrl += "/" + width + "/" + height;
+  }
+  baseUrl += "/" + url;
+  return baseUrl;
 });

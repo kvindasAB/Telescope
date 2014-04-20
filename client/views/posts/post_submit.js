@@ -43,6 +43,7 @@ Template.post_submit.events({
     var title= $('#title').val();
     var url = $('#url').val();
     var shortUrl = $('#short-url').val();
+    var imageUrl = $('#image_url').val();
     var body = instance.editor.exportFile();
     var categories=[];
     var sticky=!!$('#sticky').attr('checked');
@@ -66,6 +67,9 @@ Template.post_submit.events({
     };
     if(url){
       properties.url = cleanUrl(url);
+    }
+    if(imageUrl){
+      properties.imageUrl = cleanUrl(imageUrl);
     }
 
     var executePost = function(){
