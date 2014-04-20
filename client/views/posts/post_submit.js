@@ -123,7 +123,6 @@ Template.post_submit.events({
   },
 
   'blur #url': function(e){
-    console.log("blur url...");
     var url, lastValidatedUrl, $titleLinkEl, $titleEl, $descEl, autoRecommend;
     e.preventDefault();
     autoRecommend = getSetting("autoRecommendPostData", false);
@@ -149,6 +148,31 @@ Template.post_submit.events({
 
     recommendTitleAndContent(url, $titleEl, $descEl, $titleLinkEl);
     $("#validated_url").val(url);
+  },
+
+
+  'blur #image_url': function(e){
+    e.preventDefault();
+    console.log("blue imageUrl...");
+
+    var imageUrl = $("#image_url").val();
+
+    var notValidImage = function(){
+        $("#image_url_preview_wrapper").removeClass("hidden").addClass("hidden");
+        $("#image_url_preview").attr("src", "");
+    }
+
+    var validImage = function(){
+        $("#image_url_preview_wrapper").removeClass("hidden");
+        $("#image_url_preview").attr("src", imageUrl);
+    }
+
+    if(!imageUrl){
+        notValidImage();
+        return;
+    }
+
+    validImage();
   }
 
 
