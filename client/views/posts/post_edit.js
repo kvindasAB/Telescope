@@ -167,6 +167,31 @@ Template.post_edit.events({
     });
 
   },
+
+  'blur #image_url': function(e){
+    e.preventDefault();
+    console.log("blue imageUrl...");
+
+    var imageUrl = $("#image_url").val();
+
+    var notValidImage = function(){
+        $("#image_url_preview_wrapper").removeClass("hidden").addClass("hidden");
+        $("#image_url_preview").attr("src", "");
+    }
+
+    var validImage = function(){
+        $("#image_url_preview_wrapper").removeClass("hidden");
+        $("#image_url_preview").attr("src", imageUrl);
+    }
+
+    if(!imageUrl){
+        notValidImage();
+        return;
+    }
+
+    validImage();
+  },
+
   'click .delete-link': function(e){
     var post = this;
 
