@@ -17,6 +17,10 @@ Package.onUse(function(api) {
     'templating'
   ], 'client');
 
+  api.use([
+    'http'
+  ], 'server');
+
 });
 
 Package.onTest(function(api) {
