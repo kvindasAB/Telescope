@@ -2,17 +2,20 @@ Meteor.startup(function () {
   if(!Meteor.isServer){
     return;
   }
-  postSubmitServerCallbacks.push(postSubmitCallbackValidateUrl);
+  var bindfunc = _.bind(ValidUrlService.postSubmitCallbackValidateUrl, ValidUrlService);
+  postSubmitServerCallbacks.push(bindfunc);
 });
 
-function postSubmitCallbackValidateUrl(post){
-  if(isForceValidUrlOnlyEnabled() && !isUrlValid(post.url)){
+ValidUrlService = {};
+
+ValidUrlService.postSubmitCallbackValidateUrl = function(post){
+  if(this.isForceValidUrlOnlyEnabled() && !this.isUrlValid(post.url)){
     throw new Meteor.Error(1101, i18n.t('Please provide a valid URL'));
   };
   return post;
 }
 
-function isUrlValid(url, successFn, failFn){
+ValidUrlService.isUrlValid = function(url){
   if(!url || url === ""){ return false; }
   try{
     var result = HTTP.get(url);
@@ -22,9 +25,8 @@ function isUrlValid(url, successFn, failFn){
   }
 }
 
-function isForceValidUrlOnlyEnabled(){
+ValidUrlService.isForceValidUrlOnlyEnabled = function(){
   var setting = getSetting("forceValidUrlOnly");
-  console.log("Setting: " + setting);
   return !!setting;
 }
 
