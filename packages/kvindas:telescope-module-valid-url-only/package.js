@@ -21,10 +21,12 @@ Package.onUse(function(api) {
     'http'
   ], 'server');
 
+  api.export('ValidUrlService');
+
 });
 
 Package.onTest(function(api) {
   api.use('tinytest');
   api.use('kvindas:telescope-module-valid-url-only');
-  api.addFiles('test/valid-url-only-tests.js');
+  api.addFiles('tests/valid-url-only-tests.js', 'server');
 });
