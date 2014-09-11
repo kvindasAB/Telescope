@@ -66,4 +66,6 @@ matb33:collection-hooks
 djedi:sanitize-html
 rajit:bootstrap3-datepicker
 kvindas:telescope-module-auto-recommend
+kvindas:telescope-module-valid-url-only
+http
 
