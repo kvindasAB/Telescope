@@ -42,6 +42,7 @@ joshowens:simple-form@0.1.8
 jquery@1.0.0
 json@1.0.0
 kvindas:telescope-module-auto-recommend@0.0.1
+kvindas:telescope-module-force-detail-page@0.0.1
 kvindas:telescope-module-valid-url-only@0.0.1
 less@1.0.6
 livedata@1.0.7

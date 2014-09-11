@@ -68,4 +68,5 @@ rajit:bootstrap3-datepicker
 kvindas:telescope-module-auto-recommend
 kvindas:telescope-module-valid-url-only
 http
+kvindas:telescope-module-force-detail-page
 
