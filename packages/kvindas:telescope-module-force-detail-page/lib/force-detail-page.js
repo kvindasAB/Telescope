@@ -22,14 +22,14 @@ ForcePostDetailService = {};
 ForcePostDetailService.POST_DETAIL_ROUTE = "post_page";
 
 ForcePostDetailService.postLink = function(item, forceDetailEnabled){
-  if(this.isPostDetailPage() || forceDetailEnabled ){
+  if((forceDetailEnabled && this.isPostDetailPage()) || !forceDetailEnabled ){
     return !!item.url ? getOutgoingUrl(item.url) : "/posts/"+item._id;
   }
   return "/posts/"+item._id;
 }
 
 ForcePostDetailService.postTarget = function(item, forceDetailEnabled){
-  if(this.isPostDetailPage() || forceDetailEnabled ){
+  if((forceDetailEnabled && this.isPostDetailPage()) || !forceDetailEnabled ){
     return !!item.url ? '_blank' : '';
   }
   return '';
