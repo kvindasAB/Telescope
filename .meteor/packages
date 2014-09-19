@@ -65,6 +65,7 @@ npm-container
 matb33:collection-hooks
 djedi:sanitize-html
 rajit:bootstrap3-datepicker
+telescope-update-prompt
 kvindas:telescope-module-auto-recommend
 kvindas:telescope-module-valid-url-only
 http
