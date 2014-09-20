@@ -67,8 +67,9 @@ djedi:sanitize-html
 rajit:bootstrap3-datepicker
 telescope-update-prompt
 telescope-notifications
-http
 
+
+http
 kvindas:telescope-module-auto-recommend
 kvindas:telescope-module-valid-url-only
 kvindas:telescope-module-force-detail-page
