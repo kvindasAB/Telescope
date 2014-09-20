@@ -3,7 +3,7 @@ Meteor.startup(function () {
     return;
   }
   var bindfunc = _.bind(ValidUrlService.postSubmitCallbackValidateUrl, ValidUrlService);
-  postSubmitServerCallbacks.push(bindfunc);
+  postSubmitMethodCallbacks.push(bindfunc);
 });
 
 ValidUrlService = {};
