@@ -8,6 +8,7 @@ accounts-ui@1.1.0
 aldeed:autoform@2.0.1
 aldeed:collection2@2.0.0
 aldeed:simple-schema@1.0.3
+alivebox:telescope-module-post-content-summary@0.0.1
 application-configuration@1.0.2
 autoupdate@1.1.0
 backbone@1.0.0
@@ -45,11 +46,11 @@ joshowens:accounts-entry@0.9.0
 joshowens:simple-form@0.1.8
 jquery@1.0.0
 json@1.0.0
-less@1.0.8
-livedata@1.0.9
 kvindas:telescope-module-auto-recommend@0.0.1
 kvindas:telescope-module-force-detail-page@0.0.1
 kvindas:telescope-module-valid-url-only@0.0.1
+less@1.0.8
+livedata@1.0.9
 localstorage@1.0.0
 logging@1.0.3
 matb33:collection-hooks@0.7.6

@@ -73,4 +73,5 @@ http
 kvindas:telescope-module-auto-recommend
 kvindas:telescope-module-valid-url-only
 kvindas:telescope-module-force-detail-page
+alivebox:telescope-module-post-content-summary
 
