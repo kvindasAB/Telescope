@@ -10,10 +10,14 @@ Package.onUse(function(api) {
     [
       'lib/post-content-summary.js',
       'lib/post-content-summary.css',
-      'lib/post-content-summary-settings.js',
       'lib/post_body_summary.html',
       'lib/post_body_summary.js'
     ], 'client' );
+
+  api.addFiles(
+    [
+      'lib/post-content-summary-settings.js'
+    ]);
 
   api.use(['telescope-lib', 'telescope-base'], ['client', 'server']);
 

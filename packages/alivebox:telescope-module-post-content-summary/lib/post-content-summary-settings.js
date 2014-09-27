@@ -1,5 +1,5 @@
 var postContentPreview = {
-  propertyName: 'anotherPropertyName',
+  propertyName: 'postContentPreview',
   propertySchema: {
     type: Boolean,
     label: "Show post content preview on Post List",
