@@ -1,1 +1,4 @@
-// Write your package code here!
+postHeading.push({
+  template: 'postBodySummary',
+  order: 6
+})
