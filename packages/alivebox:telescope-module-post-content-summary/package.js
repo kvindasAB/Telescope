@@ -8,7 +8,7 @@ Package.onUse(function(api) {
   api.versionsFrom('METEOR@0.9.2.2');
   api.addFiles(
     [
-      'lib/post-content-summary.js',
+      'vendor/jquery.dotdotdot.min.js',
       'lib/post-content-summary.css',
       'lib/post_body_summary.html',
       'lib/post_body_summary.js'
@@ -16,6 +16,7 @@ Package.onUse(function(api) {
 
   api.addFiles(
     [
+      'lib/post-content-summary.js',
       'lib/post-content-summary-settings.js'
     ]);
 

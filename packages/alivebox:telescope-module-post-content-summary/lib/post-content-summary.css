@@ -1,5 +1,5 @@
 .post-body-summary {
-    font-size: 0.5em;
+    font-size: 0.6em;
     text-overflow: ellipsis;
     overflow: hidden;
     color: #4a4444;
@@ -7,7 +7,7 @@
 }
 
 .post-body-summary p{
-    height: 3em;
+    max-height: 3em;
     overflow: hidden;
     white-space: pre-wrap;
     text-overflow: ellipsis;
