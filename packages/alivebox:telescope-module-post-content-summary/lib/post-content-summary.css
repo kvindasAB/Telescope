@@ -1,0 +1,18 @@
+.post-body-summary {
+    font-size: 0.6em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #4a4444;
+    display: none;
+}
+
+.post-body-summary p{
+    max-height: 3em;
+    overflow: hidden;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+}
+
+.posts.list .post-body-summary{
+    display: block;
+}
