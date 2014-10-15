@@ -13,7 +13,7 @@ application-configuration@1.0.2
 autoupdate@1.1.1
 backbone@1.0.0
 base64@1.0.0
-bengott:avatar@0.1.1
+bengott:avatar@0.1.2
 binary-heap@1.0.0
 blaze-tools@1.0.0
 blaze@2.0.1
@@ -47,6 +47,8 @@ jparker:crypto-core@0.1.0
 jparker:crypto-md5@0.1.1
 jquery@1.0.0
 json@1.0.0
+kestanous:herald-email@0.2.1
+kestanous:herald@0.6.0
 less@1.0.9
 livedata@1.0.10
 kvindas:telescope-module-auto-recommend@0.0.1
@@ -59,6 +61,7 @@ meteor-platform@1.1.1
 meteor@1.1.1
 meteorhacks:async@1.0.0
 meteorhacks:fast-render@1.1.2
+meteorhacks:kadira-binary-deps@1.2.0
 meteorhacks:kadira@2.11.2
 meteorhacks:npm@1.2.0
 meteorhacks:subs-manager@1.1.0
